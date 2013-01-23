@@ -1,0 +1,47 @@
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[diff]
+	tool = Kaleidoscope
+
+[difftool]
+	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
+[mergetool]
+	prompt = false
+
+[merge]
+	tool = Kaleidoscope
+
+[user]
+	email = 
+	name = 
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = nano
+
+[push]
+	default = current
+
+[pull]
+	default = matching
+
+[alias]
+	ci = commit -v
+	co = checkout
+	st = status
+	sta = status -sb
+	br = branch
+	sm = submodule
+	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	d = diff -w
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
